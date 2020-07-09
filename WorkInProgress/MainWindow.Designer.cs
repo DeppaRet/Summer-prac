@@ -29,9 +29,9 @@
     private void InitializeComponent()
     {
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-      System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-      System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-      System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+      System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+      System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+      System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
       this.toolStrip1 = new System.Windows.Forms.ToolStrip();
       this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
       this.Close = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +53,6 @@
       this.TimeEnd = new System.Windows.Forms.TextBox();
       this.label7 = new System.Windows.Forms.Label();
       this.label8 = new System.Windows.Forms.Label();
-      this.dataGridView1 = new System.Windows.Forms.DataGridView();
       this.Graph = new System.Windows.Forms.DataVisualization.Charting.Chart();
       this.TimeStep = new System.Windows.Forms.TextBox();
       this.label9 = new System.Windows.Forms.Label();
@@ -62,11 +61,14 @@
       this.label10 = new System.Windows.Forms.Label();
       this.SpeedK2 = new System.Windows.Forms.TextBox();
       this.label11 = new System.Windows.Forms.Label();
+      this.DisplayPoints = new System.Windows.Forms.DataGridView();
+      this.X_Values = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.Y_Values = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.toolStrip1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.Time)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.Graph)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.DisplayPoints)).BeginInit();
       this.SuspendLayout();
       // 
       // toolStrip1
@@ -259,28 +261,21 @@
       this.label8.TabIndex = 16;
       this.label8.Text = "От";
       // 
-      // dataGridView1
-      // 
-      this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.dataGridView1.Location = new System.Drawing.Point(210, 77);
-      this.dataGridView1.Name = "dataGridView1";
-      this.dataGridView1.Size = new System.Drawing.Size(294, 292);
-      this.dataGridView1.TabIndex = 17;
-      // 
       // Graph
       // 
-      chartArea3.Name = "ChartArea1";
-      this.Graph.ChartAreas.Add(chartArea3);
-      legend3.Name = "Legend1";
-      this.Graph.Legends.Add(legend3);
-      this.Graph.Location = new System.Drawing.Point(510, 75);
+      chartArea1.Name = "ChartArea1";
+      this.Graph.ChartAreas.Add(chartArea1);
+      legend1.Name = "Legend1";
+      this.Graph.Legends.Add(legend1);
+      this.Graph.Location = new System.Drawing.Point(390, 75);
       this.Graph.Name = "Graph";
-      series3.ChartArea = "ChartArea1";
-      series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-      series3.Legend = "Legend1";
-      series3.Name = "Series1";
-      this.Graph.Series.Add(series3);
-      this.Graph.Size = new System.Drawing.Size(429, 294);
+      series1.ChartArea = "ChartArea1";
+      series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+      series1.Legend = "Legend1";
+      series1.MarkerBorderColor = System.Drawing.Color.Red;
+      series1.Name = "Series1";
+      this.Graph.Series.Add(series1);
+      this.Graph.Size = new System.Drawing.Size(426, 294);
       this.Graph.TabIndex = 18;
       this.Graph.Text = "chart1";
       // 
@@ -345,12 +340,36 @@
       this.label11.TabIndex = 24;
       this.label11.Text = "Скорость k2";
       // 
+      // DisplayPoints
+      // 
+      this.DisplayPoints.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.DisplayPoints.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.X_Values,
+            this.Y_Values});
+      this.DisplayPoints.Location = new System.Drawing.Point(197, 75);
+      this.DisplayPoints.Name = "DisplayPoints";
+      this.DisplayPoints.Size = new System.Drawing.Size(187, 292);
+      this.DisplayPoints.TabIndex = 26;
+      // 
+      // X_Values
+      // 
+      this.X_Values.HeaderText = "X";
+      this.X_Values.Name = "X_Values";
+      this.X_Values.Width = 70;
+      // 
+      // Y_Values
+      // 
+      this.Y_Values.HeaderText = "Y";
+      this.Y_Values.Name = "Y_Values";
+      this.Y_Values.Width = 70;
+      // 
       // MainWindow
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.SystemColors.MenuBar;
       this.ClientSize = new System.Drawing.Size(828, 396);
+      this.Controls.Add(this.DisplayPoints);
       this.Controls.Add(this.SpeedK2);
       this.Controls.Add(this.label11);
       this.Controls.Add(this.SpeedK1);
@@ -359,7 +378,6 @@
       this.Controls.Add(this.label9);
       this.Controls.Add(this.TimeStep);
       this.Controls.Add(this.Graph);
-      this.Controls.Add(this.dataGridView1);
       this.Controls.Add(this.label8);
       this.Controls.Add(this.label7);
       this.Controls.Add(this.TimeEnd);
@@ -385,8 +403,8 @@
       this.toolStrip1.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.Time)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.Graph)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.DisplayPoints)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -415,7 +433,6 @@
     private System.Windows.Forms.TextBox TimeEnd;
     private System.Windows.Forms.Label label7;
     private System.Windows.Forms.Label label8;
-    private System.Windows.Forms.DataGridView dataGridView1;
     private System.Windows.Forms.DataVisualization.Charting.Chart Graph;
     private System.Windows.Forms.TextBox TimeStep;
     private System.Windows.Forms.Label label9;
@@ -424,6 +441,9 @@
     private System.Windows.Forms.Label label10;
     private System.Windows.Forms.TextBox SpeedK2;
     private System.Windows.Forms.Label label11;
-  }
+        private System.Windows.Forms.DataGridView DisplayPoints;
+        private System.Windows.Forms.DataGridViewTextBoxColumn X_Values;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Y_Values;
+    }
 }
 
