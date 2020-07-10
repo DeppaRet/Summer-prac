@@ -99,7 +99,7 @@
             this.toolStripDropDownButton2});
       this.toolStrip1.Location = new System.Drawing.Point(0, 0);
       this.toolStrip1.Name = "toolStrip1";
-      this.toolStrip1.Size = new System.Drawing.Size(1124, 25);
+      this.toolStrip1.Size = new System.Drawing.Size(1072, 25);
       this.toolStrip1.TabIndex = 0;
       this.toolStrip1.Text = "toolStrip1";
       // 
@@ -278,8 +278,11 @@
       // 
       // Graph
       // 
+      this.Graph.BackColor = System.Drawing.Color.NavajoWhite;
+      this.Graph.BorderlineColor = System.Drawing.Color.NavajoWhite;
       chartArea1.Name = "ChartArea1";
       this.Graph.ChartAreas.Add(chartArea1);
+      legend1.BackColor = System.Drawing.Color.NavajoWhite;
       legend1.Name = "Legend1";
       this.Graph.Legends.Add(legend1);
       this.Graph.Location = new System.Drawing.Point(205, 82);
@@ -430,7 +433,7 @@
       // 
       this.label15.AutoSize = true;
       this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.label15.Location = new System.Drawing.Point(709, 63);
+      this.label15.Location = new System.Drawing.Point(680, 63);
       this.label15.Name = "label15";
       this.label15.Size = new System.Drawing.Size(140, 16);
       this.label15.TabIndex = 32;
@@ -438,12 +441,13 @@
       // 
       // Graph2
       // 
+      this.Graph2.BackColor = System.Drawing.Color.NavajoWhite;
       chartArea2.Name = "ChartArea1";
       this.Graph2.ChartAreas.Add(chartArea2);
       legend2.Enabled = false;
       legend2.Name = "Legend1";
       this.Graph2.Legends.Add(legend2);
-      this.Graph2.Location = new System.Drawing.Point(712, 82);
+      this.Graph2.Location = new System.Drawing.Point(683, 82);
       this.Graph2.Name = "Graph2";
       series4.ChartArea = "ChartArea1";
       series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -554,7 +558,7 @@
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.NavajoWhite;
-      this.ClientSize = new System.Drawing.Size(1124, 653);
+      this.ClientSize = new System.Drawing.Size(1072, 653);
       this.Controls.Add(this.CheckPassword);
       this.Controls.Add(this.ChangeTip);
       this.Controls.Add(this.Password);
