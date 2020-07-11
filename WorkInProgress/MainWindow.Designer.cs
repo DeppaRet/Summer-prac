@@ -37,8 +37,10 @@
       System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
       System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
       System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+      System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
       this.toolStrip1 = new System.Windows.Forms.ToolStrip();
       this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+      this.ChangeValues = new System.Windows.Forms.ToolStripMenuItem();
       this.Close = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
       this.About = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,24 +67,31 @@
       this.SpeedK2 = new System.Windows.Forms.TextBox();
       this.label11 = new System.Windows.Forms.Label();
       this.DisplayPointsA = new System.Windows.Forms.DataGridView();
+      this.X_Values = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.Y_Values = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.label12 = new System.Windows.Forms.Label();
       this.label13 = new System.Windows.Forms.Label();
       this.DisplayPointsB = new System.Windows.Forms.DataGridView();
+      this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.label14 = new System.Windows.Forms.Label();
       this.label15 = new System.Windows.Forms.Label();
       this.Graph2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
       this.label17 = new System.Windows.Forms.Label();
       this.DisplayPointsC = new System.Windows.Forms.DataGridView();
-      this.X_Values = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.Y_Values = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.ChangeValues = new System.Windows.Forms.ToolStripMenuItem();
       this.Password = new System.Windows.Forms.TextBox();
       this.ChangeTip = new System.Windows.Forms.Label();
       this.CheckPassword = new System.Windows.Forms.Button();
+      this.label16 = new System.Windows.Forms.Label();
+      this.EilerPointsA = new System.Windows.Forms.DataGridView();
+      this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.EilerPointsB = new System.Windows.Forms.DataGridView();
+      this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.label18 = new System.Windows.Forms.Label();
       this.toolStrip1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.Graph)).BeginInit();
@@ -90,6 +99,8 @@
       ((System.ComponentModel.ISupportInitialize)(this.DisplayPointsB)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.Graph2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.DisplayPointsC)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EilerPointsA)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EilerPointsB)).BeginInit();
       this.SuspendLayout();
       // 
       // toolStrip1
@@ -114,6 +125,13 @@
       this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
       this.toolStripDropDownButton1.Size = new System.Drawing.Size(49, 22);
       this.toolStripDropDownButton1.Text = "Файл";
+      // 
+      // ChangeValues
+      // 
+      this.ChangeValues.Name = "ChangeValues";
+      this.ChangeValues.Size = new System.Drawing.Size(182, 22);
+      this.ChangeValues.Text = "Изменить значения";
+      this.ChangeValues.Click += new System.EventHandler(this.ChangeValues_Click);
       // 
       // Close
       // 
@@ -163,7 +181,7 @@
       // label2
       // 
       this.label2.AutoSize = true;
-      this.label2.Location = new System.Drawing.Point(-1, 338);
+      this.label2.Location = new System.Drawing.Point(2, 338);
       this.label2.Name = "label2";
       this.label2.Size = new System.Drawing.Size(200, 52);
       this.label2.TabIndex = 3;
@@ -388,6 +406,18 @@
       this.DisplayPointsA.Size = new System.Drawing.Size(160, 226);
       this.DisplayPointsA.TabIndex = 26;
       // 
+      // X_Values
+      // 
+      this.X_Values.HeaderText = "Время";
+      this.X_Values.Name = "X_Values";
+      this.X_Values.Width = 60;
+      // 
+      // Y_Values
+      // 
+      this.Y_Values.HeaderText = "Кон-ция";
+      this.Y_Values.Name = "Y_Values";
+      this.Y_Values.Width = 60;
+      // 
       // label12
       // 
       this.label12.AutoSize = true;
@@ -419,6 +449,18 @@
       this.DisplayPointsB.Size = new System.Drawing.Size(160, 226);
       this.DisplayPointsB.TabIndex = 28;
       // 
+      // dataGridViewTextBoxColumn1
+      // 
+      this.dataGridViewTextBoxColumn1.HeaderText = "Время";
+      this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+      this.dataGridViewTextBoxColumn1.Width = 60;
+      // 
+      // dataGridViewTextBoxColumn2
+      // 
+      this.dataGridViewTextBoxColumn2.HeaderText = "Кон-ция";
+      this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+      this.dataGridViewTextBoxColumn2.Width = 60;
+      // 
       // label14
       // 
       this.label14.AutoSize = true;
@@ -433,7 +475,7 @@
       // 
       this.label15.AutoSize = true;
       this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.label15.Location = new System.Drawing.Point(680, 63);
+      this.label15.Location = new System.Drawing.Point(703, 63);
       this.label15.Name = "label15";
       this.label15.Size = new System.Drawing.Size(140, 16);
       this.label15.TabIndex = 32;
@@ -455,7 +497,12 @@
       series4.Legend = "Legend1";
       series4.MarkerBorderColor = System.Drawing.Color.Red;
       series4.Name = "Series1";
+      series5.ChartArea = "ChartArea1";
+      series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+      series5.Legend = "Legend1";
+      series5.Name = "Series2";
       this.Graph2.Series.Add(series4);
+      this.Graph2.Series.Add(series5);
       this.Graph2.Size = new System.Drawing.Size(400, 308);
       this.Graph2.TabIndex = 31;
       this.Graph2.Text = "chart1";
@@ -481,30 +528,6 @@
       this.DisplayPointsC.Size = new System.Drawing.Size(160, 226);
       this.DisplayPointsC.TabIndex = 34;
       // 
-      // X_Values
-      // 
-      this.X_Values.HeaderText = "Время";
-      this.X_Values.Name = "X_Values";
-      this.X_Values.Width = 60;
-      // 
-      // Y_Values
-      // 
-      this.Y_Values.HeaderText = "Кон-ция";
-      this.Y_Values.Name = "Y_Values";
-      this.Y_Values.Width = 60;
-      // 
-      // dataGridViewTextBoxColumn1
-      // 
-      this.dataGridViewTextBoxColumn1.HeaderText = "Время";
-      this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-      this.dataGridViewTextBoxColumn1.Width = 60;
-      // 
-      // dataGridViewTextBoxColumn2
-      // 
-      this.dataGridViewTextBoxColumn2.HeaderText = "Кон-ция";
-      this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-      this.dataGridViewTextBoxColumn2.Width = 60;
-      // 
       // dataGridViewTextBoxColumn3
       // 
       this.dataGridViewTextBoxColumn3.HeaderText = "Время";
@@ -516,13 +539,6 @@
       this.dataGridViewTextBoxColumn4.HeaderText = "Кон-ция";
       this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
       this.dataGridViewTextBoxColumn4.Width = 60;
-      // 
-      // ChangeValues
-      // 
-      this.ChangeValues.Name = "ChangeValues";
-      this.ChangeValues.Size = new System.Drawing.Size(182, 22);
-      this.ChangeValues.Text = "Изменить значения";
-      this.ChangeValues.Click += new System.EventHandler(this.ChangeValues_Click);
       // 
       // Password
       // 
@@ -553,12 +569,82 @@
       this.CheckPassword.Visible = false;
       this.CheckPassword.Click += new System.EventHandler(this.CheckPassword_Click);
       // 
+      // label16
+      // 
+      this.label16.AutoSize = true;
+      this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.label16.Location = new System.Drawing.Point(724, 402);
+      this.label16.Name = "label16";
+      this.label16.Size = new System.Drawing.Size(47, 16);
+      this.label16.TabIndex = 40;
+      this.label16.Text = "Eiler A";
+      // 
+      // EilerPointsA
+      // 
+      this.EilerPointsA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.EilerPointsA.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
+      this.EilerPointsA.Location = new System.Drawing.Point(727, 421);
+      this.EilerPointsA.Name = "EilerPointsA";
+      this.EilerPointsA.Size = new System.Drawing.Size(160, 226);
+      this.EilerPointsA.TabIndex = 39;
+      // 
+      // dataGridViewTextBoxColumn5
+      // 
+      this.dataGridViewTextBoxColumn5.HeaderText = "Время";
+      this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+      this.dataGridViewTextBoxColumn5.Width = 60;
+      // 
+      // dataGridViewTextBoxColumn6
+      // 
+      this.dataGridViewTextBoxColumn6.HeaderText = "Кон-ция";
+      this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+      this.dataGridViewTextBoxColumn6.Width = 60;
+      // 
+      // EilerPointsB
+      // 
+      this.EilerPointsB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.EilerPointsB.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
+      this.EilerPointsB.Location = new System.Drawing.Point(893, 421);
+      this.EilerPointsB.Name = "EilerPointsB";
+      this.EilerPointsB.Size = new System.Drawing.Size(160, 226);
+      this.EilerPointsB.TabIndex = 41;
+      // 
+      // dataGridViewTextBoxColumn7
+      // 
+      this.dataGridViewTextBoxColumn7.HeaderText = "Время";
+      this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+      this.dataGridViewTextBoxColumn7.Width = 60;
+      // 
+      // dataGridViewTextBoxColumn8
+      // 
+      this.dataGridViewTextBoxColumn8.HeaderText = "Кон-ция";
+      this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+      this.dataGridViewTextBoxColumn8.Width = 60;
+      // 
+      // label18
+      // 
+      this.label18.AutoSize = true;
+      this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.label18.Location = new System.Drawing.Point(890, 402);
+      this.label18.Name = "label18";
+      this.label18.Size = new System.Drawing.Size(47, 16);
+      this.label18.TabIndex = 42;
+      this.label18.Text = "Eiler B";
+      // 
       // MainWindow
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.NavajoWhite;
       this.ClientSize = new System.Drawing.Size(1072, 653);
+      this.Controls.Add(this.label18);
+      this.Controls.Add(this.EilerPointsB);
+      this.Controls.Add(this.label16);
+      this.Controls.Add(this.EilerPointsA);
       this.Controls.Add(this.CheckPassword);
       this.Controls.Add(this.ChangeTip);
       this.Controls.Add(this.Password);
@@ -606,6 +692,8 @@
       ((System.ComponentModel.ISupportInitialize)(this.DisplayPointsB)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.Graph2)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.DisplayPointsC)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EilerPointsA)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EilerPointsB)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -659,6 +747,14 @@
     private System.Windows.Forms.TextBox Password;
     private System.Windows.Forms.Label ChangeTip;
     private System.Windows.Forms.Button CheckPassword;
-  }
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DataGridView EilerPointsA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridView EilerPointsB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.Label label18;
+    }
 }
 

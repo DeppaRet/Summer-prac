@@ -45,24 +45,34 @@ namespace WorkInProgress
       return list;
     }
 
-    public static List<string> Eiler(double ConcA, double TimeStart, double TimeEnd, double TimeStep, List<string> list)
+    public static List<string> Eiler(double ConcA, double TimeStart, double TimeEnd, double TimeStep, List<string> listA, List<string> listB)
     {
       double y = 0;
       double temp = ConcA;
+      double tmp = 0;
+      Random random = new Random();
       try
       { 
         for (double i = TimeStart; i < TimeEnd; i = i + TimeStep)
         {
-          y = temp * (-5);
-          list.Add(Math.Round(Math.Abs(y), 6).ToString());
-          temp = y;
+          tmp = random.NextDouble() * (0.009 - 0.000001) + 0.000001; // для первой -5*Са
+          
+          y = ConcA * Math.Exp(-5*i)+tmp; // для второй получается 5*Са - k2*Cb как для третьей хз 
+          tmp =  (100-y) * Math.Exp(-5 * i);
+          // https://portal.tpu.ru/SHARED/p/POGADAEVA/Ucheba/Tab/Tab/UchebPosobie.pdf
+          //tmp = (0 + ConcA) - y;
+          
+          listB.Add(Math.Round(Math.Abs(tmp), 6).ToString());
+          //list.Add(Math.Round(Math.Abs(y), 6).ToString());
+          temp = tmp;
+          //temp = y;
         }
       }
       catch (Exception ex)
       {
         MessageBox.Show(ex.Message);
       }
-      return list;
+      return listB;
     }
   }
 }
