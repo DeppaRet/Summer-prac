@@ -33,11 +33,13 @@ namespace WorkInProgress
         Graph.Series[2].Points.Clear();
         Graph2.Series[0].Points.Clear();
         Graph2.Series[1].Points.Clear();
+        Graph2.Series[2].Points.Clear();
         DisplayPointsA.Rows.Clear();
         DisplayPointsB.Rows.Clear();
         DisplayPointsC.Rows.Clear();
         EilerPointsA.Rows.Clear();
         EilerPointsB.Rows.Clear();
+        EilerPointsC.Rows.Clear();
 
         List<string> list = new List<string>();
         List<string> listResA = new List<string>();
@@ -48,6 +50,7 @@ namespace WorkInProgress
         List<string> listC = new List<string>();
         List<string> listEilerA = new List<string>();
         List<string> listEilerB = new List<string>();
+        List<string> listEilerC = new List<string>();
 
         TimeStep.BackColor = Color.White;
         TimeStart.BackColor = Color.White;
@@ -154,15 +157,21 @@ namespace WorkInProgress
         //Random random = new Random();
         tmp = concA;
         double eilerB = 0;
+        double eilerC = 0;
+        listEilerA.Add(Math.Round(Math.Abs(tmp), 6).ToString());
+        listEilerB.Add(Math.Round(Math.Abs(eilerB), 6).ToString());
+
         for (double i = left; i < right; i = i + step)
         {
           //tmp = random.NextDouble() * (0.009 - 0.000001) + 0.000001; // для первой -5*Са
-          double y = tmp - i * 5 * tmp;
-          eilerB = concB + i * (5*tmp - 5*concB);
+          double y = tmp - step * 5 * tmp;
+          eilerB = concB + step * (5*tmp - 5*concB);
+          eilerC = 100 - y - eilerB;
           tmp = y;
           concB = eilerB;
           listEilerA.Add(Math.Round(Math.Abs(y), 6).ToString());
           listEilerB.Add(Math.Round(Math.Abs(eilerB), 6).ToString());
+          listEilerC.Add(Math.Round(Math.Abs(eilerC), 6).ToString());
         }
         k = 0;
         for (double i = left; i < right; i = i + step)
@@ -172,6 +181,8 @@ namespace WorkInProgress
           list2.Add(i.ToString());
           tmp = Convert.ToDouble(listEilerB[k]);
           Graph2.Series[1].Points.AddXY(i, tmp);
+          tmp = Convert.ToDouble(listEilerC[k]);
+          Graph2.Series[2].Points.AddXY(i, tmp);
           k++;
         }
         temp = 0;
@@ -183,6 +194,7 @@ namespace WorkInProgress
           }
           EilerPointsA.Rows.Add(list2[i], listEilerA[i]);
           EilerPointsB.Rows.Add(list2[i], listEilerB[i]);
+          EilerPointsC.Rows.Add(list2[i], listEilerC[i]);
           temp++;
         }
         

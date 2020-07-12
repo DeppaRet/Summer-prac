@@ -38,6 +38,7 @@
       System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
       System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
       System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+      System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
       this.toolStrip1 = new System.Windows.Forms.ToolStrip();
       this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
       this.ChangeValues = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,6 +93,10 @@
       this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.label18 = new System.Windows.Forms.Label();
+      this.label19 = new System.Windows.Forms.Label();
+      this.EilerPointsC = new System.Windows.Forms.DataGridView();
+      this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.toolStrip1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.Graph)).BeginInit();
@@ -101,6 +106,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.DisplayPointsC)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.EilerPointsA)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.EilerPointsB)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EilerPointsC)).BeginInit();
       this.SuspendLayout();
       // 
       // toolStrip1
@@ -110,7 +116,7 @@
             this.toolStripDropDownButton2});
       this.toolStrip1.Location = new System.Drawing.Point(0, 0);
       this.toolStrip1.Name = "toolStrip1";
-      this.toolStrip1.Size = new System.Drawing.Size(1072, 25);
+      this.toolStrip1.Size = new System.Drawing.Size(1230, 25);
       this.toolStrip1.TabIndex = 0;
       this.toolStrip1.Text = "toolStrip1";
       // 
@@ -489,7 +495,7 @@
       this.Graph2.BackColor = System.Drawing.Color.NavajoWhite;
       chartArea2.Name = "ChartArea1";
       this.Graph2.ChartAreas.Add(chartArea2);
-      legend2.Enabled = false;
+      legend2.BackColor = System.Drawing.Color.NavajoWhite;
       legend2.Name = "Legend1";
       this.Graph2.Legends.Add(legend2);
       this.Graph2.Location = new System.Drawing.Point(683, 82);
@@ -497,18 +503,26 @@
       series4.BorderWidth = 3;
       series4.ChartArea = "ChartArea1";
       series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-      series4.IsVisibleInLegend = false;
       series4.Legend = "Legend1";
+      series4.LegendText = "Концентрация А";
       series4.MarkerBorderColor = System.Drawing.Color.Red;
       series4.Name = "Series1";
       series5.BorderWidth = 3;
       series5.ChartArea = "ChartArea1";
       series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
       series5.Legend = "Legend1";
+      series5.LegendText = "Концентрация B";
       series5.Name = "Series2";
+      series6.BorderWidth = 3;
+      series6.ChartArea = "ChartArea1";
+      series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+      series6.Legend = "Legend1";
+      series6.LegendText = "Концентрация C";
+      series6.Name = "Series3";
       this.Graph2.Series.Add(series4);
       this.Graph2.Series.Add(series5);
-      this.Graph2.Size = new System.Drawing.Size(400, 308);
+      this.Graph2.Series.Add(series6);
+      this.Graph2.Size = new System.Drawing.Size(535, 308);
       this.Graph2.TabIndex = 31;
       this.Graph2.Text = "chart1";
       // 
@@ -640,12 +654,47 @@
       this.label18.TabIndex = 42;
       this.label18.Text = "Eiler B";
       // 
+      // label19
+      // 
+      this.label19.AutoSize = true;
+      this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.label19.Location = new System.Drawing.Point(1057, 402);
+      this.label19.Name = "label19";
+      this.label19.Size = new System.Drawing.Size(47, 16);
+      this.label19.TabIndex = 44;
+      this.label19.Text = "Eiler С";
+      // 
+      // EilerPointsC
+      // 
+      this.EilerPointsC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.EilerPointsC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10});
+      this.EilerPointsC.Location = new System.Drawing.Point(1060, 421);
+      this.EilerPointsC.Name = "EilerPointsC";
+      this.EilerPointsC.Size = new System.Drawing.Size(160, 226);
+      this.EilerPointsC.TabIndex = 43;
+      // 
+      // dataGridViewTextBoxColumn9
+      // 
+      this.dataGridViewTextBoxColumn9.HeaderText = "Время";
+      this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+      this.dataGridViewTextBoxColumn9.Width = 60;
+      // 
+      // dataGridViewTextBoxColumn10
+      // 
+      this.dataGridViewTextBoxColumn10.HeaderText = "Кон-ция";
+      this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+      this.dataGridViewTextBoxColumn10.Width = 60;
+      // 
       // MainWindow
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.NavajoWhite;
-      this.ClientSize = new System.Drawing.Size(1072, 653);
+      this.ClientSize = new System.Drawing.Size(1230, 653);
+      this.Controls.Add(this.label19);
+      this.Controls.Add(this.EilerPointsC);
       this.Controls.Add(this.label18);
       this.Controls.Add(this.EilerPointsB);
       this.Controls.Add(this.label16);
@@ -699,6 +748,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.DisplayPointsC)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.EilerPointsA)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.EilerPointsB)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EilerPointsC)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -760,6 +810,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.DataGridView EilerPointsC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
     }
 }
 
