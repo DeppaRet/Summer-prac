@@ -45,7 +45,7 @@ namespace WorkInProgress
       return list;
     }
 
-    public static List<string> Eiler(double ConcA, double TimeStart, double TimeEnd, double TimeStep, List<string> listA, List<string> listB)
+    /*public static List<string> Eiler(double ConcA, double TimeStart, double TimeEnd, double TimeStep, List<string> listA, List<string> listB)
     {
       double y = 0;
       double temp = ConcA;
@@ -73,6 +73,6 @@ namespace WorkInProgress
         MessageBox.Show(ex.Message);
       }
       return listB;
-    }
+    }*/
   }
 }

@@ -32,10 +32,12 @@ namespace WorkInProgress
         Graph.Series[1].Points.Clear();
         Graph.Series[2].Points.Clear();
         Graph2.Series[0].Points.Clear();
+        Graph2.Series[1].Points.Clear();
         DisplayPointsA.Rows.Clear();
         DisplayPointsB.Rows.Clear();
         DisplayPointsC.Rows.Clear();
         EilerPointsA.Rows.Clear();
+        EilerPointsB.Rows.Clear();
 
         List<string> list = new List<string>();
         List<string> listResA = new List<string>();
@@ -148,13 +150,19 @@ namespace WorkInProgress
         }
 
         //Calc.CalculateSecond(concB, left, right, step, listRes2);
-        Calc.Eiler(concA, left, right, step, listEilerA, listEilerB);
-        Random random = new Random();
+        //Calc.Eiler(concA, left, right, step, listEilerA, listEilerB);
+        //Random random = new Random();
+        tmp = concA;
+        double eilerB = 0;
         for (double i = left; i < right; i = i + step)
         {
-          tmp = random.NextDouble() * (0.009 - 0.000001) + 0.000001; // для первой -5*Са
-          double y = concA * Math.Exp(-5 * i) + tmp;
+          //tmp = random.NextDouble() * (0.009 - 0.000001) + 0.000001; // для первой -5*Са
+          double y = tmp - i * 5 * tmp;
+          eilerB = concB + i * (5*tmp - 5*concB);
+          tmp = y;
+          concB = eilerB;
           listEilerA.Add(Math.Round(Math.Abs(y), 6).ToString());
+          listEilerB.Add(Math.Round(Math.Abs(eilerB), 6).ToString());
         }
         k = 0;
         for (double i = left; i < right; i = i + step)
