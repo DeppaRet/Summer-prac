@@ -203,7 +203,7 @@ namespace WorkInProgress
         Graph.MouseWheel += chart1_MouseWheel;
         Graph2.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
         Graph2.ChartAreas[0].AxisY.ScaleView.Zoomable = true;
-        Graph2.MouseWheel += chart1_MouseWheel;
+        Graph2.MouseWheel += chart2_MouseWheel;
       }
       catch(Exception ex)
       {
@@ -246,7 +246,37 @@ namespace WorkInProgress
       }
       catch { }
     }
+    private void chart2_MouseWheel(object sender, MouseEventArgs e)
+    {
+      var chart = (Chart)sender;
+      var xAxis = Graph2.ChartAreas[0].AxisX;
+      var yAxis = Graph2.ChartAreas[0].AxisY;
 
+      try
+      {
+        if (e.Delta < 0) // Scrolled down.
+        {
+          xAxis.ScaleView.ZoomReset();
+          yAxis.ScaleView.ZoomReset();
+        }
+        else if (e.Delta > 0) // Scrolled up.
+        {
+          var xMin = xAxis.ScaleView.ViewMinimum;
+          var xMax = xAxis.ScaleView.ViewMaximum;
+          var yMin = yAxis.ScaleView.ViewMinimum;
+          var yMax = yAxis.ScaleView.ViewMaximum;
+
+          var posXStart = xAxis.PixelPositionToValue(e.Location.X) - (xMax - xMin) / 4;
+          var posXFinish = xAxis.PixelPositionToValue(e.Location.X) + (xMax - xMin) / 4;
+          var posYStart = yAxis.PixelPositionToValue(e.Location.Y) - (yMax - yMin) / 4;
+          var posYFinish = yAxis.PixelPositionToValue(e.Location.Y) + (yMax - yMin) / 4;
+
+          xAxis.ScaleView.Zoom(posXStart, posXFinish);
+          yAxis.ScaleView.Zoom(posYStart, posYFinish);
+        }
+      }
+      catch { }
+    }
     private void ChangeValues_Click(object sender, EventArgs e)
     {
       ChangeTip.Visible = true;
