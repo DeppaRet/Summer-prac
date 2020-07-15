@@ -111,11 +111,16 @@ namespace WorkInProgress
         double concC = Convert.ToDouble(ConcC.Text);
 
         Calc.CalculateFirst(concA, left, right, step, listResA);
-
+        Random random = new Random();
         int k = 0;
         for (double i = left; i < right; i = i + step)
         {
-          tmp = Convert.ToDouble(listResA[k]);
+          double rnd = 0;
+          if (Wrong.Checked == true)
+          {
+            rnd = random.NextDouble() * (0.009 - 0.000001) + 0.000001;
+          }
+          tmp = Convert.ToDouble(listResA[k]) + rnd;
           Graph.Series[0].Points.AddXY(i, tmp);
           list.Add(i.ToString());
           k++;
@@ -133,7 +138,12 @@ namespace WorkInProgress
         k = 0;
         for (double i = left; i < right; i = i + step)
         {
-          tmp = Math.Round(Math.Abs(100 - Convert.ToDouble(listResA[k])) * Math.Exp(-5 * i), 6);
+          double rnd = 0;
+          if (Wrong.Checked == true)
+          {
+            rnd = random.NextDouble() * (0.009 - 0.000001) + 0.000001;
+          }
+          tmp = Math.Round(Math.Abs(100 - Convert.ToDouble(listResA[k])) * Math.Exp(-5 * i) + rnd, 6);
           Graph.Series[1].Points.AddXY(i, tmp); //можно вынести на отдельный график но хз
           listResB.Add(tmp.ToString());
           listB.Add(i.ToString());
@@ -144,7 +154,12 @@ namespace WorkInProgress
         k = 0;
         for (double i = left; i < right; i = i + step)
         {
-          tmp = Math.Round(Math.Abs(100 - Convert.ToDouble(listResA[k]) - Convert.ToDouble(listResB[k])), 6);
+          double rnd = 0;
+          if (Wrong.Checked == true)
+          {
+            rnd = random.NextDouble() * (0.009 - 0.000001) + 0.000001;
+          }
+          tmp = Math.Round(Math.Abs(100 - Convert.ToDouble(listResA[k]) - Convert.ToDouble(listResB[k]) + rnd), 6);
           Graph.Series[2].Points.AddXY(i, tmp); //можно вынести на отдельный график но хз
           listResC.Add(tmp.ToString());
           listC.Add(i.ToString());
@@ -154,7 +169,7 @@ namespace WorkInProgress
 
         //Calc.CalculateSecond(concB, left, right, step, listRes2);
         //Calc.Eiler(concA, left, right, step, listEilerA, listEilerB);
-        //Random random = new Random();
+        
         tmp = concA;
         double eilerB = 0;
         double eilerC = 0;
@@ -163,10 +178,14 @@ namespace WorkInProgress
 
         for (double i = left; i < right; i = i + step)
         {
-          //tmp = random.NextDouble() * (0.009 - 0.000001) + 0.000001; // для первой -5*Са
-          double y = tmp - step * 5 * tmp;
-          eilerB = concB + step * (5*tmp - 5*concB);
-          eilerC = 100 - y - eilerB;
+          double rnd = 0;
+          if (Wrong.Checked == true)
+          {
+            rnd = random.NextDouble() * (0.009 - 0.000001) + 0.000001;
+          }
+          double y = tmp - step * 5 * tmp + rnd;
+          eilerB = concB + step * (5*tmp - 5*concB) + rnd;
+          eilerC = 100 - y - eilerB + rnd;
           tmp = y;
           concB = eilerB;
           listEilerA.Add(Math.Round(Math.Abs(y), 6).ToString());
@@ -254,7 +273,7 @@ namespace WorkInProgress
 
       try
       {
-        if (e.Delta < 0) // Scrolled down.
+        if (e.Delta < 0) // Scrolled down.  
         {
           xAxis.ScaleView.ZoomReset();
           yAxis.ScaleView.ZoomReset();
@@ -303,6 +322,11 @@ namespace WorkInProgress
       ChangeTip.Visible = false;
       Password.Visible = false;
       CheckPassword.Visible = false;
+    }
+
+    private void Wrong_CheckedChanged(object sender, EventArgs e)
+    {
+
     }
   }
 }

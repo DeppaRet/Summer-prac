@@ -97,6 +97,7 @@
       this.EilerPointsC = new System.Windows.Forms.DataGridView();
       this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.Wrong = new System.Windows.Forms.CheckBox();
       this.toolStrip1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.Graph)).BeginInit();
@@ -266,6 +267,7 @@
       // 
       // TimeStart
       // 
+      this.TimeStart.BackColor = System.Drawing.SystemColors.ControlLightLight;
       this.TimeStart.Location = new System.Drawing.Point(39, 246);
       this.TimeStart.Name = "TimeStart";
       this.TimeStart.ReadOnly = true;
@@ -687,12 +689,24 @@
       this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
       this.dataGridViewTextBoxColumn10.Width = 60;
       // 
+      // Wrong
+      // 
+      this.Wrong.AutoSize = true;
+      this.Wrong.Location = new System.Drawing.Point(7, 421);
+      this.Wrong.Name = "Wrong";
+      this.Wrong.Size = new System.Drawing.Size(147, 17);
+      this.Wrong.TabIndex = 45;
+      this.Wrong.Text = "Расчет с погрешностью";
+      this.Wrong.UseVisualStyleBackColor = true;
+      this.Wrong.CheckedChanged += new System.EventHandler(this.Wrong_CheckedChanged);
+      // 
       // MainWindow
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.NavajoWhite;
       this.ClientSize = new System.Drawing.Size(1230, 653);
+      this.Controls.Add(this.Wrong);
       this.Controls.Add(this.label19);
       this.Controls.Add(this.EilerPointsC);
       this.Controls.Add(this.label18);
@@ -814,6 +828,7 @@
         private System.Windows.Forms.DataGridView EilerPointsC;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.CheckBox Wrong;
     }
 }
 
